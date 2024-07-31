@@ -17,13 +17,18 @@ click==8.1.7
 click-didyoumean==0.3.1
 click-plugins==1.1.1
 click-repl==0.3.0
+cron-descriptor==1.4.3
 decorator==5.1.1
 distro==1.9.0
 dj-database-url==2.2.0
 dj-email-url==1.0.6
 Django==4.2.14
 django-cache-url==3.4.5
+django-celery-beat==2.6.0
+django-celery-results==2.5.1
 django-environ==0.11.2
+django-redis==5.4.0
+django-timezone-field==7.0
 djangorestframework==3.15.2
 djangorestframework-simplejwt==5.3.1
 drf-yasg==1.21.7
@@ -59,6 +64,7 @@ pydantic==2.8.2
 pydantic_core==2.20.1
 Pygments==2.18.0
 PyJWT==2.8.0
+python-crontab==3.2.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 pytz==2024.1
