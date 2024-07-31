@@ -8,7 +8,7 @@ Prerequisites
 1. Clone the Repository
    Clone the repository to your local machine:
    git clone git@github.com:kuldeep203/openai_image_gen.git
-   cd blog
+   
 2. Create and Activate a Virtual Environment
    python -m venv venv
 3. Create a .env file in the root of your project with the following variables:
