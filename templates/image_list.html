@@ -1,0 +1,20 @@
+<!-- image_generator/templates/image_generator/image_list.html -->
+{% load static %}
+<!-- image_generator/templates/image_generator/image_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Images</title>
+</head>
+<body>
+    <h1>Generated Images</h1>
+    <ul>
+        {% for image in images %}
+            <li>
+                <img src="{% static image %}" alt="Generated Image" style="max-width: 100%; height: auto;">
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

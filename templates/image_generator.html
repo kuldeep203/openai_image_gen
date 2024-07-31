@@ -1,0 +1,33 @@
+<!-- image_generator.html -->
+{% load static %}
+<!-- image_generator.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Generator</title>
+</head>
+<body>
+<h1>Generate Images</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Generate</button>
+</form>
+
+<h2>Generated Images</h2>
+<ul>
+    {% for image in images %}
+    <li>
+        <p>Prompt: {{ image.prompt }}</p>
+        {% if image.image_url %}
+        <p>Image:</p>
+        <img src="{{ image.image_url }}" alt="Generated Image" style="max-width: 100%; height: auto;">
+        {% else %}
+        <p>No image available yet.</p>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
