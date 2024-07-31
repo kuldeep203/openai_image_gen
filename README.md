@@ -1,7 +1,9 @@
 Setup Instructions
 Prerequisites
-Python 3.8+: Ensure Python is installed.
-pip: Python package installer.
+    INSTALL REDIS
+        sudo snap install redis
+    Python 3.8+: Ensure Python is installed.
+    pip: Python package installer.
 
 1. Clone the Repository
    Clone the repository to your local machine:
@@ -9,22 +11,24 @@ pip: Python package installer.
    cd blog
 2. Create and Activate a Virtual Environment
    python -m venv venv
-3. Active venv
+3. Create a .env file in the root of your project with the following variables:
+    OPENAI_KEY=''
+4. Active venv
    source venv/bin/activate
-4. Install Dependencies
+5. Install Dependencies
    pip install -r requirements.txt
-5. Database Setup
+6. Database Setup
    python3 manage.py makemigrations
    python3 manage.py migrate
-6. Create a superuser to access the Django admin interface
+7. Create a superuser to access the Django admin interface
    python manage.py createsuperuser
-7. python manage.py runserver
-    8. API Documentation
-       Interactive API documentation is available at:
+8. python manage.py runserver
+9. API Documentation
+   Interactive API documentation is available at:
 
-       Swagger UI: http://127.0.0.1:8000/swagger/
+   Swagger UI: http://127.0.0.1:8000/swagger/
 
-9. Authentication
+10. Authentication
    JWT Authentication
    Obtain Access and Refresh Tokens:
 
@@ -52,4 +56,12 @@ Authorization: Bearer <your-access-token>
 12. CSRF Token
     For POST requests, include the CSRF token in the request headers. Retrieve the CSRF token by making a GET request to
     any endpoint with CSRF protection enabled.
+
+
+13. Start Celery Worker
+In a separate terminal, activate your virtual environment and run:
+
+bash
+Copy code
+celery -A image_gen_project worker --loglevel=info
 

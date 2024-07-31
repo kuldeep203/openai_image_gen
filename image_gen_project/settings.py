@@ -73,7 +73,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'apis.apps.ApisConfig',
     'image_generator.apps.ImageGeneratorConfig',
-    "drf_yasg"
+    "drf_yasg",
+    "django_celery_beat"
 ]
 
 MIDDLEWARE = [
@@ -194,3 +195,32 @@ SWAGGER_SETTINGS = {
     },
     'DEFAULT_AUTO_SCHEMA_CLASS': 'drf_yasg.inspectors.SwaggerAutoSchema',
 }
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": f"redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
+
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+ROOT_URLCONF = 'image_gen_project.urls'

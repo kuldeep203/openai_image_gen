@@ -5,10 +5,9 @@ from .forms import ImageForm
 from .tasks import generate_image
 from .models import Image
 from celery.result import AsyncResult
-# from rest_framework.permissions import IsAuthenticated
-from rest_framework import permissions
-from rest_framework.authentication import BasicAuthentication, TokenAuthentication
 
+import redis
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 def image_generator_view(request):
     # authentication_classes = [BasicAuthentication, TokenAuthentication]
